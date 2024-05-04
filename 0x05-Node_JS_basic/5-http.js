@@ -47,7 +47,7 @@ const app = http.createServer((req, res) => {
         }
 
         const studentEntries = studentPropNames.map((propName, idx) => ({
-          [propName]: studentPropValues[idx]
+          [propName]: studentPropValues[idx],
         }));
 
         studentGroups[field].push(Object.assign({}, ...studentEntries));
@@ -56,11 +56,11 @@ const app = http.createServer((req, res) => {
       reportParts.push(`Number of students: ${fileLines.length - 1}`); // Total lines excluding header
       for (const [field, group] of Object.entries(studentGroups)) {
         reportParts.push(`Number of students in ${field}: ${group.length}.`);
-        reportParts.push('List: ' + group.map(student => student.firstname).join(', '));
+        reportParts.push(`List: ${group.map((student) => student.firstname).join(', ')}`);
       }
 
       // Prepare response text
-      const responseText = 'This is the list of our students\n' + reportParts.join('\n');
+      const responseText = `This is the list of our students\n${reportParts.join('\n')}`;
 
       // Send response
       res.setHeader('Content-Type', 'text/plain');
