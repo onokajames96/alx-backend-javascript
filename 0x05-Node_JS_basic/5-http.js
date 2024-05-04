@@ -1,4 +1,4 @@
-const http = require('http');
+const http = require('http'); // Import the 'http' module
 const fs = require('fs');
 
 const PORT = 1245;
