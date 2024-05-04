@@ -79,6 +79,4 @@ const app = http.createServer((req, res) => {
 app.listen(PORT, () => {
   console.log(`Server listening on PORT ${PORT}`);
 });
-
-// Export the HTTP server instance
 module.exports = app;
